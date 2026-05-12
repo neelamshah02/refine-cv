@@ -12,7 +12,7 @@ export default function HomePage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const canSubmit = cvText.length > 0 && jobDescription.trim().length > 0;
+  const canSubmit = cvText.length > 0;
 
   const handleRefine = async () => {
     setLoading(true);
@@ -79,11 +79,14 @@ export default function HomePage() {
 
         <section className="bg-white rounded-2xl shadow-sm border border-gray-200 p-6">
           <h2 className="text-lg font-semibold text-gray-800 mb-1 flex items-center gap-2">
-            <StepBadge n={2} /> Paste Job Description
+            <StepBadge n={2} /> Paste Job Description{" "}
+            <span className="text-xs font-normal text-gray-400">
+              (optional)
+            </span>
           </h2>
           <p className="text-sm text-gray-500 mb-4">
-            Paste the full job description from the customer email or job
-            posting.
+            Paste the job description to tailor the CV to a specific role, or
+            leave blank for a general expert refinement.
           </p>
           <JobDescriptionInput
             value={jobDescription}

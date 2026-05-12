@@ -9,9 +9,9 @@ export async function POST(req: NextRequest) {
   if (!cvText || typeof cvText !== "string") {
     return NextResponse.json({ error: "cvText is required" }, { status: 400 });
   }
-  if (!jobDescription || typeof jobDescription !== "string") {
+  if (jobDescription !== undefined && typeof jobDescription !== "string") {
     return NextResponse.json(
-      { error: "jobDescription is required" },
+      { error: "jobDescription must be a string" },
       { status: 400 },
     );
   }

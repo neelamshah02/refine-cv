@@ -9,7 +9,8 @@ export function JobDescriptionInput({ value, onChange }: Props) {
   return (
     <div>
       <label className="block text-sm font-semibold text-gray-700 mb-2">
-        Job Description
+        Job Description{" "}
+        <span className="text-xs font-normal text-gray-400">(optional)</span>
       </label>
       <textarea
         value={value}

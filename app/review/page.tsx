@@ -158,8 +158,8 @@ export default function ReviewPage() {
             <SectionCard
               key={i}
               title={`Project: ${project.client} — ${project.projectName || project.description.slice(0, 40)}`}
-              original={projectToText(project)}
-              refined={projectToText(project)}
+              original={originalCvText}
+              refined={projectTexts[i] ?? projectToText(project)}
               status={projectStatuses[i]}
               onStatusChange={(s) => {
                 const next = [...projectStatuses];
