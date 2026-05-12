@@ -23,13 +23,6 @@ export function SectionCard({
   const [editing, setEditing] = useState(false);
   const [editText, setEditText] = useState(refined);
 
-  const activeText =
-    status === "original"
-      ? original
-      : status === "refined"
-        ? refined
-        : editText;
-
   return (
     <div className="border border-gray-200 rounded-xl overflow-hidden shadow-sm">
       {/* Title bar */}
@@ -110,7 +103,7 @@ function StatusButton({
   label,
   active,
   onClick,
-  variant = "default",
+  variant: _variant = "default",
 }: {
   label: string;
   active: boolean;

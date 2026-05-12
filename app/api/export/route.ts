@@ -15,7 +15,7 @@ export async function POST(req: NextRequest) {
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const buffer = await renderToBuffer(
-    React.createElement(CapgeminiCVDocument, { cv }) as any,
+    React.createElement(CapgeminiCVDocument, { cv }) as React.ReactElement,
   );
 
   return new NextResponse(new Uint8Array(buffer), {
