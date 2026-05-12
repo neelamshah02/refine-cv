@@ -103,7 +103,6 @@ function StatusButton({
   label,
   active,
   onClick,
-  variant: _variant = "default",
 }: {
   label: string;
   active: boolean;
