@@ -1,8 +1,7 @@
-import { PDFParse } from "pdf-parse";
-
 export async function extractTextFromPdf(buffer: Buffer): Promise<string> {
-  const parser = new PDFParse({ data: buffer });
-  const result = await parser.getText();
-  await parser.destroy();
-  return result.text;
+  // Dynamic import prevents pdf-parse from reading test files on module init,
+  // which would crash in serverless / Vercel environments.
+  const pdfParse = (await import("pdf-parse")).default;
+  const data = await pdfParse(buffer);
+  return data.text;
 }

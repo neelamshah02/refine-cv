@@ -50,6 +50,10 @@ export async function refineCv(
   cvText: string,
   jobDescription?: string,
 ): Promise<RefinementResult> {
+  if (!process.env.GROQ_API_KEY) {
+    throw new Error("GROQ_API_KEY environment variable is not set");
+  }
+
   const userContent = jobDescription?.trim()
     ? `CV TEXT:\n${cvText}\n\nJOB DESCRIPTION:\n${jobDescription}`
     : `CV TEXT:\n${cvText}\n\nNo job description provided. Please perform a general expert refinement.`;
